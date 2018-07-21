@@ -1,0 +1,260 @@
+<html>
+<head>
+<title>Install | MeteorDetector</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<h1>インストール</h1>
+インストールでは C:\uzanka\ をベースディレクトリとして説明します.<br>
+異なるディレクトリにインストールする場合は読み替えてください.<br>
+
+<ul>
+<li><a href="#compiler">Visual Studio 2017 (Community Edition 以上)</a></li>
+<li><a href="#poco">Poco C++ Libraries</a></li>
+<li><a href="#opencv">OpenCV library</a></li>
+<li><a href="#MeteorDetector">MeteorDetector</a></li>
+</ul>
+
+以下のソフトウェアは, 必要な場合にインストールしてください.<br>
+
+<ul>
+<li><a href="#runtime">Visual Studio 2017 の Microsoft Visual C++ 再頒布可能パッケージ</a> (x64) (Selectable)</li>
+</ul>
+
+<h2><a name="compiler">Visual Studio 2017 (Community Edition 以上)</h2>
+<a href="https://www.visualstudio.com/ja/vs/whatsnew/">Microsoft のページ</a>からダウンロードしてインストールします.<br>
+Visual Studio をすでにインストール済みの場合はスキップしてください.<br>
+
+
+<h2><a name="poco">Poco C++ Libraries</h2>
+<a href="https://pocoproject.org/">POCO</a> のページから Complete Edition の Source for Windows をダウンロードします.<br>
+<br>
+<img src="images/poco_download.png">
+<br>
+
+<h3>Poco C++ Libraries のビルド</h3>
+Poco はソースファイルしかありません.<br>
+使用するアプリケーションと必ず同じバージョンの Visual Studio でビルドします.<br>
+以下の手順でライブラリを作成します.<br>
+
+<ol>
+  <li>ダウンロードしたファイルを C:\uzanka\poco\ に展開します.</li>
+
+  <li>C:\uzanka\poco\components ファイルを開き, 以下の行を削除します.<br>
+    <table border="0" style="color: white; background-color: black;">
+      <tr>
+        <td>
+<pre>
+Crypto
+NetSSL_OpenSSL
+</pre>
+        </td>
+      </tr>
+    </table>
+    ※ Crypto, NetSSL_OpenSSLは openssl がないとビルドできません.
+  </li>
+
+  <li>"VS 2017 用 x64 Native Tools コマンドプロンプト" を起動します.<br>
+    <table border="0" style="color: white; background-color: black;">
+      <tr>
+        <td>
+<pre>
+スタートメニュー
+  > プログラム
+     > Visual Studio 2017
+        > Visual Studio Tools
+           > VC
+              > VS 2017 用 x64 Native Tools コマンドプロンプト
+</pre>
+        </td>
+      </tr>
+    </table>
+  </li>
+
+  <li>ビルドコマンドを実行します.<br>
+    <table border="0" style="color: white; background-color: black;">
+      <tr>
+        <td>
+<pre>
+C:\> cd C:\uzanka\poco
+C:\uzanka\poco> buildwin.bat 150 build shared both x64 nosamples notests
+</pre>
+        </td>
+      </tr>
+    </table>
+    30 分ほどでビルドが完了します.<br>
+    ビルドに失敗する場合は, 2 と 3 の手順を確認してください.<br>
+    Visual Studio のバージョンが異なる場合は, VS_VERSION を読み替えてください.<br>
+
+    <table border="1" style="border-collapse: collapse;">
+      <tr><th>バージョン</th><th>VS_VERSION</th></tr>
+      <tr><td>Visual Studio 2017</td><td>150</td></tr>
+      <tr><td>Visual Studio 2015</td><td>140</td></tr>
+      <tr><td>Visual Studio 2013</td><td>120</td></tr>
+      <tr><td>Visual Studio 2012</td><td>110</td></tr>
+      <tr><td>Visual Studio 2010</td><td>100</td></tr>
+      <tr><td>Visual Studio 2008</td><td>90</td></tr>
+    </table>
+  </li>
+
+</ol>
+<br>
+
+ディレクトリ構成は以下のようになります.<br>
+黄色で示したファイルが生成されたファイルです.<br>
+<br>
+
+<table border="0" style="color: white; background-color: black;">
+  <tr>
+    <td>
+<pre>
+C:\uzanka\
+  poco\
+    bin64\
+      <id style="color: yellow;">PocoData64.dll
+      PocoData64d.dll
+      PocoDataODBC64.dll
+      PocoDataODBC64d.dll
+      PocoDataSQLite64.dll
+      PocoDataSQLite64d.dll
+      PocoFoundation64.dll
+      PocoFoundation64d.dll
+      PocoJSON64.dll
+      PocoJSON64d.dll
+      PocoUtil64.dll
+      PocoUtil64d.dll
+      PocoXML64.dll
+      PocoXML64d.dll</id>
+      ※ 他にもファイルがありますが省略します.
+    lib64\
+      <id style="color: yellow;">PocoData64.lib
+      PocoData64d.lib
+      PocoDataODBC64.lib
+      PocoDataODBC64d.lib
+      PocoDataSQLite64.lib
+      PocoDataSQLite64d.lib
+      PocoFoundation64.lib
+      PocoFoundation64d.lib
+      PocoJSON64.lib
+      PocoJSON64d.lib
+      PocoUtil64.lib
+      PocoUtil64d.lib
+      PocoXML64.lib
+      PocoXML64d.lib</id>
+      ※ 他にもファイルがありますが省略します.
+    Data\
+      include\
+      ODBC\
+        include\
+      SQLite\
+        include\
+    Foundation\
+      include\
+    JSON\
+      include\
+    Util\
+      include\
+    XML\
+      include\
+    ※ 他にもディレクトリがありますが省略します.
+    ※ これらのディレクトリは MeteorDetector をビルドする場合に必要です.
+</pre>
+    </td>
+  </tr>
+</table>
+<br>
+
+上記の C:\uzanka\poco\bin64\ にある黄色で示したファイルを C:\uzanka\MeteorDetector\bin にコピーします.<br>
+C:\uzanka\poco\ は MeteorDetector をビルドする場合に必要なディレクトリになります.<br>
+
+
+<h2><a name="opencv">OpenCV library</h2>
+<a href="https://opencv.org/">OpenCV</a> のページからダウンロードします.<br>
+Windowsのバイナリは <a href="https://opencv.org/releases.html">https://opencv.org/releases.html</a> のページからダウンロードできます.<br>
+ダウンロードしたファイルを実行するとファイルが展開されます.<br>
+展開したファイルを C:\uzanka\opencv に配置します.<br>
+ディレクトリ構成は以下のようになります.<br>
+<br>
+
+<table border="0" style="color: white; background-color: black;">
+  <tr>
+    <td>
+<pre>
+C:\uzanka\
+  opencv\
+    build\
+      bin\
+        opencv_ffmpeg331.dll
+        opencv_ffmpeg331_64.dll
+      include\
+        ※ OpenCV のインクルードファイル
+      x64\
+        vc14\
+          bin\
+            opencv_world331.dll
+            opencv_world331d.dll
+          lib\  ※ OpenCV のライブラリファイル
+            opencv_world331.lib
+            opencv_world331d.lib
+</pre>
+    </td>
+  </tr>
+</table>
+<br>
+
+上記の opencv_world331.dll, opencv_world331d.dll, opencv_ffmpeg331_64.dll ファイルを, C:\uzanka\MeteorDetector\bin ディレクトリにコピーします.<br>
+C:\uzanka\opencv\build\include, C:\uzanka\opencv\build\x64\vc14\lib は, MeteorDetector をビルドする場合に必要なディレクトリになります.<br>
+opencv_ffmpeg331_64.dll がないとコーデックのエラーで動画ファイルを読み込めません.<br>
+
+
+<h2><a name="MeteorDetector">MeteorDetector</h2>
+MeteorDetector を Visual Studio でビルドします.<br>
+MeteorDetector を C:\uzanka\MeteorDetector に配置します.<br>
+ディレクトリ構成は以下のようになります.<br>
+<br>
+
+<table border="0" style="color: white; background-color: black;">
+  <tr>
+    <td>
+<pre>
+C:\uzanka\
+  MeteorDetector\
+    bin\
+      MeteorDetector.exe
+      ※ 後で説明するファイル (以下の黄色で示したファイル) をこのディレクトリにコピーします.
+      <id style="color: yellow;">opencv_world331.dll
+      opencv_ffmpeg331_64.dll
+      sqlite3.dll
+      PocoData64.dll
+      PocoDataODBC64.dll
+      PocoDataSQL64.dll
+      PocoFoundation64.dll
+      PocoJSON64.dll
+      PocoUtil64.dll
+      PocoXML64.dll</id>
+      ※ MeteorDetector をデバッグする場合は以下のファイルも必要です.
+      <id style="color: yellow;">opencv_world331d.dll
+      PocoData64d.dll
+      PocoDataODBC64d.dll
+      PocoDataSQL64d.dll
+      PocoFoundation64d.dll
+      PocoJSON64d.dll
+      PocoUtil64d.dll
+      PocoXML64d.dll</id>
+    build\
+      ※ MeteorDetector のプロジェクトファイル
+</pre>
+    </td>
+  </tr>
+</table>
+<br>
+
+
+<h2><a name="runtime">Visual Studio 2017 の Microsoft Visual C++ 再頒布可能パッケージ</h2>
+Visual Studio 2017 がインストールされていないコンピュータで MeteorDetector を実行する場合は, 
+<a href="https://www.visualstudio.com/ja/downloads/?q=#other-ja">Visual Studio 2017 の Microsoft Visual C++ 再頒布可能パッケージ</a>
+を Microsoft のページからダウンロードしてインストールします.<br>
+<br>
+
+</body>
+</html>

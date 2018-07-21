@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{D69A1CB0-BECB-4DCF-8C1E-4064B99C404B}</ProjectGuid>
+    <RootNamespace>MeteorDetector</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)d</TargetName>
+    <OutDir>$(SolutionDir)..\bin\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\bin\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.;..\..\poco\Foundation\include;..\..\poco\Data\include;..\..\poco\Data\SQLite\include;..\..\poco\Data\ODBC\include;..\..\poco\Util\include;..\..\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\..\poco\lib64;..\..\opencv\build\x64\vc14\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PocoFoundationd.lib;PocoDatad.lib;PocoDataODBCd.lib;PocoUtild.lib;opencv_world331d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>.;..\..\poco\Foundation\include;..\..\poco\Data\include;..\..\poco\Data\SQLite\include;..\..\poco\Data\ODBC\include;..\..\poco\Util\include;..\..\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\poco\lib64;..\..\opencv\build\x64\vc14\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>PocoFoundation.lib;PocoData.lib;PocoDataODBC.lib;PocoUtil.lib;opencv_world331.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Define.h" />
+    <ClInclude Include="detector\Detector.h" />
+    <ClInclude Include="detector\DetectorFactory.h" />
+    <ClInclude Include="detector\HoughLinespDetector.h" />
+    <ClInclude Include="exporter\Exporter.h" />
+    <ClInclude Include="exporter\ResultData.h" />
+    <ClInclude Include="MeteorDetector.h" />
+    <ClInclude Include="normalizer\Normalizer.h" />
+    <ClInclude Include="normalizer\NormalizerFactory.h" />
+    <ClInclude Include="normalizer\Size640x360Normalizer.h" />
+    <ClInclude Include="normalizer\Size960x540Normalizer.h" />
+    <ClInclude Include="normalizer\SizeNormalizer.h" />
+    <ClInclude Include="Property.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ShutdownHelper.h" />
+    <ClInclude Include="TheApplication.h" />
+    <ClInclude Include="thread\AsyncThread.h" />
+    <ClInclude Include="thread\AsyncThreadPool.h" />
+    <ClInclude Include="validator\DetectorOptionValidator.h" />
+    <ClInclude Include="validator\FileOptionValidator.h" />
+    <ClInclude Include="validator\NormalizerOptionValidator.h" />
+    <ClInclude Include="video\ImageHolder.h" />
+    <ClInclude Include="video\VideoLoader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MeteorDetector.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="detector\Detector.cpp" />
+    <ClCompile Include="detector\DetectorFactory.cpp" />
+    <ClCompile Include="detector\HoughLinespDetector.cpp" />
+    <ClCompile Include="exporter\Exporter.cpp" />
+    <ClCompile Include="MeteorDetector.cpp" />
+    <ClCompile Include="normalizer\Normalizer.cpp" />
+    <ClCompile Include="normalizer\NormalizerFactory.cpp" />
+    <ClCompile Include="normalizer\Size640x360Normalizer.cpp" />
+    <ClCompile Include="normalizer\Size960x540Normalizer.cpp" />
+    <ClCompile Include="normalizer\SizeNormalizer.cpp" />
+    <ClCompile Include="Property.cpp" />
+    <ClCompile Include="ShutdownHelper.cpp" />
+    <ClCompile Include="TheApplication.cpp" />
+    <ClCompile Include="thread\AsyncThread.cpp" />
+    <ClCompile Include="thread\AsyncThreadPool.cpp" />
+    <ClCompile Include="validator\DetectorOptionValidator.cpp" />
+    <ClCompile Include="validator\FileOptionValidator.cpp" />
+    <ClCompile Include="validator\NormalizerOptionValidator.cpp" />
+    <ClCompile Include="video\ImageHolder.cpp" />
+    <ClCompile Include="video\VideoLoader.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
