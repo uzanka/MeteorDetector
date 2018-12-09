@@ -1,5 +1,6 @@
 # MeteorDetector
 MeteorDetector is a software to detect meteor from video files.
+
 It is impossible to perfectly detect from the movie shot in the night sky, 
 so it is assumed that it will be executed while improving the program.
 
@@ -20,4 +21,4 @@ Please refer to the doc in the repository.
 # Usage
 Run MeteorDetector from a command prompt.
 
- MeteorDetector.exe /target=sample.avi
+    MeteorDetector.exe /target=sample.avi
