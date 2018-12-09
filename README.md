@@ -1,25 +1,23 @@
 # MeteorDetector
-MeteorDetector は, 動画ファイルから流星を検出支援するソフトウェアです.
+MeteorDetector is a software to detect meteor from video files.
+It is impossible to perfectly detect from the movie shot in the night sky, 
+so it is assumed that it will be executed while improving the program.
 
-夜空を撮影した動画から完璧な検出はできないため, プログラムを改良しながら実行することを想定しています.
 
+# Requirement
+MeteorDetector runs on Windows (x64).
+The software required for MeteorDetector operation is as follows.
 
-# 必要なソフトウェア
-MeteorDetector は Windows (x64) で動作します.
-
-MeteorDetector の動作に必要なソフトウェアは以下のとおりです.
-
-- Visual Studio 2017 (Community Edition 以上)
+- Visual Studio 2017 (Community Edition or higher)
 - POCO C++ Libraries
 - OpenCV library
 
 
-# インストール
-リポジトリ内の doc を参照してください.
+# Build
+Please refer to the doc in the repository.
 
 
-# 使用方法
-コマンドプロンプトから MeteorDetector を実行します.
+# Usage
+Run MeteorDetector from a command prompt.
 
  MeteorDetector.exe /target=sample.avi
- 
