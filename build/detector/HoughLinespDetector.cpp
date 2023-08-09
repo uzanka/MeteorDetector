@@ -105,8 +105,11 @@ void HoughLinespDetector::DebugView(cv::Mat& image, std::vector<cv::Vec4i>& line
 #ifdef _DEBUG
   static Poco::Int64 interval = 0;
   cv::Mat view;
+  #if (CV_VERSION_MAJOR >= 4)
+  cv::cvtColor(image, view, cv::COLOR_GRAY2BGR);
+  #else
   cv::cvtColor(image, view, CV_GRAY2BGR);
-
+  #endif
   bool flag = false;
   if (linesp.size() > 0) {
     cv::Vec4i pt = linesp.at(0);

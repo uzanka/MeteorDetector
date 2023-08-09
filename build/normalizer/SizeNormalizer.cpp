@@ -56,7 +56,11 @@ void SizeNormalizer::Run(ImageHolder::Ptr frame) {
   }
 
   if (gray_) {
+    #if (CV_VERSION_MAJOR >= 4)
+    cv::cvtColor(frame->frame_, frame->frame_, cv::COLOR_RGB2GRAY);
+    #else
     cv::cvtColor(frame->frame_, frame->frame_, CV_RGB2GRAY);
+    #endif
   }
 }
 
